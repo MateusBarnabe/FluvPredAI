@@ -29,14 +29,16 @@ const prompt = ai.definePrompt({
   name: 'summarizeClimateRiskReportPrompt',
   input: {schema: SummarizeClimateRiskReportInputSchema},
   output: {schema: SummarizeClimateRiskReportOutputSchema},
-  prompt: `You are an expert city planner specializing in climate resilience.
+  prompt: `Você é um planejador urbano especialista em resiliência climática.
 
-You will use the simulation results to summarize the climate risks for the specified region, highlighting the key vulnerabilities and potential impacts.
+Você usará os resultados da simulação para resumir os riscos climáticos para a região especificada, destacando as principais vulnerabilidades e os impactos potenciais.
 
-Region: {{{region}}}
-Simulation Results: {{{simulationResults}}}
+Responda em Português (Brasil).
 
-Provide a concise summary that city officials can quickly understand and communicate to stakeholders.
+Região: {{{region}}}
+Resultados da Simulação: {{{simulationResults}}}
+
+Forneça um resumo conciso que os funcionários da cidade possam entender e comunicar rapidamente às partes interessadas.
 `,
 });
 

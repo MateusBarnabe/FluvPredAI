@@ -1,3 +1,4 @@
+
 // src/ai/flows/generate-mitigation-recommendations.ts
 'use server';
 
@@ -50,7 +51,7 @@ const prompt = ai.definePrompt({
 
   Format your recommendations as a list of actions, locations, and expected impacts.
   Example:
-  ```json
+  \`\`\`
   {
     "recommendations": [
       {
@@ -60,7 +61,7 @@ const prompt = ai.definePrompt({
       }
     ]
   }
-  ```
+  \`\`\`
   `,
 });
 

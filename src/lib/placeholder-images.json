@@ -2,15 +2,15 @@
   "placeholderImages": [
     {
       "id": "login-bg",
-      "description": "Abstract background of a futuristic city with data overlays.",
+      "description": "Fundo abstrato de uma cidade futurista com sobreposições de dados.",
       "imageUrl": "https://picsum.photos/seed/citytwinbg/1920/1080",
-      "imageHint": "futuristic city"
+      "imageHint": "cidade futurista"
     },
     {
       "id": "map-placeholder",
-      "description": "A placeholder image of a city map with colored zones.",
+      "description": "Uma imagem de placeholder de um mapa da cidade com zonas coloridas.",
       "imageUrl": "https://picsum.photos/seed/citymap/800/600",
-      "imageHint": "city map"
+      "imageHint": "mapa da cidade"
     }
   ]
 }

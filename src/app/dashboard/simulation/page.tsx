@@ -4,9 +4,9 @@ export default function SimulationPage() {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Climate Scenario Simulation</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Simulação de Cenário Climático</h1>
         <p className="text-muted-foreground">
-          Run simulations to predict climate risks and get AI-powered mitigation recommendations.
+          Execute simulações para prever riscos climáticos e obter recomendações de mitigação com IA.
         </p>
       </div>
       <SimulationClient />

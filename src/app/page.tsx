@@ -20,47 +20,47 @@ export default function LoginPage() {
               <h1 className="text-3xl font-bold font-headline">CityTwinAI</h1>
             </div>
             <p className="text-balance text-muted-foreground">
-              Enter your credentials to access your urban digital twin
+              Insira suas credenciais para acessar seu gêmeo digital urbano
             </p>
           </div>
           <Card>
             <CardHeader>
               <CardTitle className="text-2xl">Login</CardTitle>
               <CardDescription>
-                Use your registered email and password to sign in.
+                Use seu e-mail e senha cadastrados para entrar.
               </CardDescription>
             </CardHeader>
             <CardContent className="grid gap-4">
               <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">E-mail</Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  placeholder="m@exemplo.com"
                   required
                 />
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
+                  <Label htmlFor="password">Senha</Label>
                   <Link
                     href="#"
                     className="ml-auto inline-block text-sm underline"
                   >
-                    Forgot your password?
+                    Esqueceu sua senha?
                   </Link>
                 </div>
                 <Input id="password" type="password" required />
               </div>
               <Button asChild type="submit" className="w-full">
-                <Link href="/dashboard">Login</Link>
+                <Link href="/dashboard">Entrar</Link>
               </Button>
             </CardContent>
           </Card>
           <div className="mt-4 text-center text-sm">
-            Don&apos;t have an account?{' '}
+            Não tem uma conta?{' '}
             <Link href="#" className="underline">
-              Sign up
+              Cadastre-se
             </Link>
           </div>
         </div>

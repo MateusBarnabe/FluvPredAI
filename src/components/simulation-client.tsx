@@ -29,7 +29,7 @@ export function SimulationClient() {
       <div className="lg:col-span-2 flex flex-col gap-6">
         {state.error && (
           <Alert variant="destructive">
-            <AlertTitle>Simulation Error</AlertTitle>
+            <AlertTitle>Erro na Simulação</AlertTitle>
             <AlertDescription>{state.error}</AlertDescription>
           </Alert>
         )}
@@ -38,8 +38,8 @@ export function SimulationClient() {
             <Card>
                 <CardContent className='p-6'>
                     <div className='text-center text-muted-foreground py-12'>
-                        <h3 className='text-lg font-semibold mb-2'>Results will appear here</h3>
-                        <p>Configure and run a simulation to see the results.</p>
+                        <h3 className='text-lg font-semibold mb-2'>Os resultados aparecerão aqui</h3>
+                        <p>Configure e execute uma simulação para ver os resultados.</p>
                     </div>
                 </CardContent>
             </Card>

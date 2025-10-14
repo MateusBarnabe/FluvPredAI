@@ -13,7 +13,7 @@ export interface SimulationState {
 }
 
 const formSchema = z.object({
-  region: z.string().min(1, 'Region is required.'),
+  region: z.string().min(1, 'Região é obrigatória.'),
   riskType: z.enum(['flood', 'drought', 'heat island']),
 });
 
@@ -31,16 +31,16 @@ export async function handleSimulation(
             return {
                 summary: null,
                 recommendations: null,
-                error: validatedFields.error.flatten().fieldErrors.region?.[0] || 'Invalid input.',
+                error: validatedFields.error.flatten().fieldErrors.region?.[0] || 'Entrada inválida.',
             };
         }
 
         const { region, riskType } = validatedFields.data;
 
         // Mock data as specified in the project description
-        const mockSimulationResults = 'Projected increase in rainfall by 15% over the next decade, leading to more frequent and severe urban flooding.';
-        const mockCityData = 'Urban data for Goiania: high density in Setor Oeste, limited green spaces.';
-        const mockClimateData = 'NASA POWER forecast shows a trend of rising temperatures and more extreme weather events for the region.';
+        const mockSimulationResults = 'Aumento projetado de 15% nas chuvas na próxima década, levando a inundações urbanas mais frequentes e severas.';
+        const mockCityData = 'Dados urbanos de Goiânia: alta densidade no Setor Oeste, espaços verdes limitados.';
+        const mockClimateData = 'Previsão do NASA POWER mostra tendência de aumento das temperaturas e eventos climáticos mais extremos para a região.';
 
         const [summaryResult, recommendationsResult] = await Promise.all([
             summarizeClimateRiskReport({ region, simulationResults: mockSimulationResults }),
@@ -54,12 +54,12 @@ export async function handleSimulation(
         };
 
     } catch (e) {
-        const error = e instanceof Error ? e.message : 'An unknown error occurred.';
+        const error = e instanceof Error ? e.message : 'Ocorreu um erro desconhecido.';
         console.error(error);
         return {
             summary: null,
             recommendations: null,
-            error: `AI processing failed: ${error}`,
+            error: `Falha no processamento da IA: ${error}`,
         };
     }
 }

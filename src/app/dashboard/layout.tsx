@@ -13,8 +13,8 @@ import DashboardNav from '@/components/dashboard-nav';
 import { UserNav } from '@/components/user-nav';
 
 export const metadata: Metadata = {
-  title: 'Dashboard | CityTwinAI',
-  description: 'Dashboard for CityTwinAI.',
+  title: 'Painel | CityTwinAI',
+  description: 'Painel do CityTwinAI.',
 };
 
 export default function DashboardLayout({

@@ -11,9 +11,9 @@ export default function MapView() {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
             <Map className="h-5 w-5" />
-            Region Map
+            Mapa da Região
         </CardTitle>
-        <CardDescription>Interactive map showing risk zones.</CardDescription>
+        <CardDescription>Mapa interativo mostrando zonas de risco.</CardDescription>
       </CardHeader>
       <CardContent className="p-0">
         {mapImage ? (
@@ -28,7 +28,7 @@ export default function MapView() {
           </div>
         ) : (
           <div className="aspect-[4/3] w-full bg-muted flex items-center justify-center">
-            <p className="text-muted-foreground">Map could not be loaded.</p>
+            <p className="text-muted-foreground">O mapa não pôde ser carregado.</p>
           </div>
         )}
       </CardContent>

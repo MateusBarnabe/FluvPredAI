@@ -11,10 +11,10 @@ import {
 import { SidebarMenu, SidebarMenuItem, SidebarMenuButton } from '@/components/ui/sidebar';
 
 const navItems = [
-  { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/dashboard/simulation', label: 'Simulation', icon: Cpu },
-  { href: '/dashboard/reports', label: 'Reports', icon: FileText },
-  { href: '/dashboard/alerts', label: 'Alerts', icon: Bell },
+  { href: '/dashboard', label: 'Painel', icon: LayoutDashboard },
+  { href: '/dashboard/simulation', label: 'Simulação', icon: Cpu },
+  { href: '/dashboard/reports', label: 'Relatórios', icon: FileText },
+  { href: '/dashboard/alerts', label: 'Alertas', icon: Bell },
 ];
 
 export default function DashboardNav() {

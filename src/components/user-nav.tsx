@@ -17,7 +17,7 @@ export function UserNav() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
           <Avatar className="h-9 w-9">
-            <AvatarImage src="https://picsum.photos/seed/user-avatar/40/40" alt="User Avatar" data-ai-hint="person face" />
+            <AvatarImage src="https://picsum.photos/seed/user-avatar/40/40" alt="Avatar do Usuário" data-ai-hint="person face" />
             <AvatarFallback>UP</AvatarFallback>
           </Avatar>
         </Button>
@@ -25,7 +25,7 @@ export function UserNav() {
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">Urban Planner</p>
+            <p className="text-sm font-medium leading-none">Planejador Urbano</p>
             <p className="text-xs leading-none text-muted-foreground">
               planner@citytwin.ai
             </p>
@@ -34,15 +34,15 @@ export function UserNav() {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            Profile
+            Perfil
           </DropdownMenuItem>
           <DropdownMenuItem>
-            Settings
+            Configurações
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <Link href="/">Log out</Link>
+          <Link href="/">Sair</Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

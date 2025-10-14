@@ -13,19 +13,19 @@ export default function MitigationRecommendations({ recommendations }: Mitigatio
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <ShieldCheck className="h-5 w-5" />
-          AI-Powered Mitigation Recommendations
+          Recomendações de Mitigação com IA
         </CardTitle>
         <CardDescription>
-          Actionable steps to improve climate resilience in the selected region.
+          Passos acionáveis para melhorar a resiliência climática na região selecionada.
         </CardDescription>
       </CardHeader>
       <CardContent>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Action</TableHead>
-              <TableHead>Location</TableHead>
-              <TableHead className="text-right">Expected Impact</TableHead>
+              <TableHead>Ação</TableHead>
+              <TableHead>Localização</TableHead>
+              <TableHead className="text-right">Impacto Esperado</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>

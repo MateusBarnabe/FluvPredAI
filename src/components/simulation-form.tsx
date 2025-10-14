@@ -14,12 +14,12 @@ function SubmitButton() {
             {pending ? (
                 <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Simulating...
+                    Simulando...
                 </>
             ) : (
                 <>
                     <Cpu className="mr-2 h-4 w-4" />
-                    Run Simulation
+                    Executar Simulação
                 </>
             )}
         </Button>
@@ -34,25 +34,25 @@ export function SimulationForm({ formAction }: SimulationFormProps) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Simulation Parameters</CardTitle>
-        <CardDescription>Configure the scenario to simulate.</CardDescription>
+        <CardTitle>Parâmetros da Simulação</CardTitle>
+        <CardDescription>Configure o cenário para simular.</CardDescription>
       </CardHeader>
       <CardContent>
         <form action={formAction} className="grid w-full items-center gap-4">
           <div className="flex flex-col space-y-1.5">
-            <Label htmlFor="region">Region</Label>
-            <Input id="region" name="region" placeholder="e.g., Setor Oeste, Goiania" defaultValue="Setor Oeste" />
+            <Label htmlFor="region">Região</Label>
+            <Input id="region" name="region" placeholder="ex: Setor Oeste, Goiânia" defaultValue="Setor Oeste" />
           </div>
           <div className="flex flex-col space-y-1.5">
-            <Label htmlFor="riskType">Climate Risk</Label>
+            <Label htmlFor="riskType">Risco Climático</Label>
             <Select name="riskType" defaultValue="flood">
               <SelectTrigger id="riskType">
-                <SelectValue placeholder="Select risk type" />
+                <SelectValue placeholder="Selecione o tipo de risco" />
               </SelectTrigger>
               <SelectContent position="popper">
-                <SelectItem value="flood">Flood</SelectItem>
-                <SelectItem value="drought">Drought</SelectItem>
-                <SelectItem value="heat island">Heat Island</SelectItem>
+                <SelectItem value="flood">Enchente</SelectItem>
+                <SelectItem value="drought">Seca</SelectItem>
+                <SelectItem value="heat island">Ilha de Calor</SelectItem>
               </SelectContent>
             </Select>
           </div>

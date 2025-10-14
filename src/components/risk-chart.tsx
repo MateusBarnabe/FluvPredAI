@@ -16,7 +16,7 @@ const chartData = [
 
 const chartConfig = {
   risk: {
-    label: "Risk Score",
+    label: "Pontuação de Risco",
     color: "hsl(var(--primary))",
   },
 }
@@ -27,10 +27,10 @@ export default function RiskChart() {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
             <TrendingUp className="h-5 w-5" />
-            Projected Risk Over Time
+            Risco Projetado ao Longo do Tempo
         </CardTitle>
         <CardDescription>
-            This chart illustrates the projected increase in climate risk score for the selected scenario.
+            Este gráfico ilustra o aumento projetado na pontuação de risco climático para o cenário selecionado.
         </CardDescription>
       </CardHeader>
       <CardContent>

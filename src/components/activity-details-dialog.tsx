@@ -2,8 +2,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
-import type { Activity, Status } from '@/lib/types';
-import { Calendar, ListChecks, User, Info, XCircle } from 'lucide-react';
+import type { Activity, Status, Priority } from '@/lib/types';
+import { Calendar, ListChecks, User, Info, XCircle, Tag } from 'lucide-react';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
@@ -12,9 +12,10 @@ interface ActivityDetailsDialogProps {
   isOpen: boolean;
   onClose: () => void;
   statusVariants: Record<Status, string>;
+  priorityVariants: Record<Priority, string>;
 }
 
-export function ActivityDetailsDialog({ activity, isOpen, onClose, statusVariants }: ActivityDetailsDialogProps) {
+export function ActivityDetailsDialog({ activity, isOpen, onClose, statusVariants, priorityVariants }: ActivityDetailsDialogProps) {
   if (!isOpen) return null;
 
   return (
@@ -25,11 +26,22 @@ export function ActivityDetailsDialog({ activity, isOpen, onClose, statusVariant
           <DialogDescription>Detalhes e histórico da atividade</DialogDescription>
         </DialogHeader>
         <div className="mt-4 grid gap-6">
-            <div className="flex items-center gap-4">
-                <User className="w-5 h-5 text-muted-foreground" />
-                <div>
-                    <p className="text-sm text-muted-foreground">Responsável</p>
-                    <p className="font-medium">{activity.responsible}</p>
+            <div className="flex items-start justify-between">
+                <div className="flex items-center gap-4">
+                    <User className="w-5 h-5 text-muted-foreground" />
+                    <div>
+                        <p className="text-sm text-muted-foreground">Responsável</p>
+                        <p className="font-medium">{activity.responsible}</p>
+                    </div>
+                </div>
+                 <div className="flex items-center gap-4 text-right">
+                    <div>
+                        <p className="text-sm text-muted-foreground">Prioridade</p>
+                        <Badge variant="outline" className={cn("font-semibold", priorityVariants[activity.priority])}>
+                           <Tag className="mr-1.5 h-3 w-3" />
+                           {activity.priority}
+                        </Badge>
+                    </div>
                 </div>
             </div>
 
@@ -75,7 +87,7 @@ export function ActivityDetailsDialog({ activity, isOpen, onClose, statusVariant
                             </Badge>
                             <p className="text-sm text-muted-foreground mt-1 flex items-center gap-2">
                                 <Calendar className="w-4 h-4" />
-                                {format(new Date(hist.date), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })}
+                                {format(new Date(hist.date), "dd 'de' MMMM 'de' yyyy 'às' HH:mm", { locale: ptBR })}
                             </p>
                         </div>
                     </li>

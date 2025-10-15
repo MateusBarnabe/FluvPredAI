@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Map, AlertTriangle, Droplets, Sun, Thermometer, ShieldCheck, History } from 'lucide-react';
 import { initialActivities } from '@/lib/activity-data';
@@ -7,12 +8,12 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
 const overviewItems = [
-  { title: 'Regiões Monitoradas', value: '5', icon: Map, color: 'text-primary' },
+  { title: 'Regiões Monitoradas', value: '7', icon: Map, color: 'text-primary' },
   { title: 'Alertas Ativos', value: '0', icon: AlertTriangle, color: 'text-destructive' },
   { title: 'Risco de Enchente', value: 'Alto', icon: Droplets, color: 'text-blue-500' },
   { title: 'Risco de Seca', value: 'Baixo', icon: Sun, color: 'text-yellow-500' },
   { title: 'Efeito Ilha de Calor', value: 'Médio', icon: Thermometer, color: 'text-orange-500' },
-  { title: 'Ações de Mitigação', value: '12', icon: ShieldCheck, color: 'text-green-500' },
+  { title: 'Ações de Mitigação', value: '7', icon: ShieldCheck, color: 'text-green-500' },
 ];
 
 function getMostRecentActivity(activities: Activity[]): Activity | null {

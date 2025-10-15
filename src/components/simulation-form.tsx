@@ -2,7 +2,6 @@
 import { useFormStatus } from 'react-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Cpu, Loader2 } from 'lucide-react';
@@ -30,6 +29,16 @@ interface SimulationFormProps {
     formAction: (formData: FormData) => void;
 }
 
+const regions = [
+  { value: 'Centro', label: 'Centro' },
+  { value: 'Leste', label: 'Leste' },
+  { value: 'Oeste', label: 'Oeste' },
+  { value: 'Norte', label: 'Norte' },
+  { value: 'Noroeste', label: 'Noroeste' },
+  { value: 'Sul', label: 'Sul' },
+  { value: 'Sudoeste', label: 'Sudoeste' },
+];
+
 export function SimulationForm({ formAction }: SimulationFormProps) {
   return (
     <Card>
@@ -41,7 +50,18 @@ export function SimulationForm({ formAction }: SimulationFormProps) {
         <form action={formAction} className="grid w-full items-center gap-4">
           <div className="flex flex-col space-y-1.5">
             <Label htmlFor="region">Região</Label>
-            <Input id="region" name="region" placeholder="ex: Setor Oeste, Goiânia" defaultValue="Setor Oeste" />
+            <Select name="region" defaultValue="Centro">
+              <SelectTrigger id="region">
+                <SelectValue placeholder="Selecione a região" />
+              </SelectTrigger>
+              <SelectContent position="popper">
+                {regions.map((region) => (
+                  <SelectItem key={region.value} value={region.value}>
+                    {region.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
           <div className="flex flex-col space-y-1.5">
             <Label htmlFor="riskType">Risco Climático</Label>

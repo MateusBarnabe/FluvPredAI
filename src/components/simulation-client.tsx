@@ -1,6 +1,6 @@
 'use client';
 
-import { useActionState } from 'react';
+import { useActionState, useState, useId } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { SimulationForm } from './simulation-form';
 import RiskSummary from './risk-summary';
@@ -19,11 +19,17 @@ const initialState: SimulationState = {
 
 export function SimulationClient() {
   const [state, formAction] = useActionState(handleSimulation, initialState);
+  const [formKey, setFormKey] = useState(useId());
+
+  const wrappedFormAction = async (formData: FormData) => {
+    await formAction(formData);
+    setFormKey(useId());
+  }
 
   return (
     <div className="grid gap-6 lg:grid-cols-3">
       <div className="lg:col-span-1 flex flex-col gap-6">
-        <SimulationForm formAction={formAction} />
+        <SimulationForm key={formKey} formAction={wrappedFormAction} />
         <MapView />
       </div>
       <div className="lg:col-span-2 flex flex-col gap-6">

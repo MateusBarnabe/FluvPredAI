@@ -7,7 +7,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { FilePlus, Cpu, Download, FileText, CalendarDays } from 'lucide-react';
 
 const savedReports = {
-  '2024': ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
+  '2025': Array.from({ length: 9 }, (_, i) => new Date(0, i).toLocaleString('pt-BR', { month: 'long' }).replace(/^\w/, c => c.toUpperCase())),
+  '2024': Array.from({ length: 12 }, (_, i) => new Date(0, i).toLocaleString('pt-BR', { month: 'long' }).replace(/^\w/, c => c.toUpperCase())),
   '2023': Array.from({ length: 12 }, (_, i) => new Date(0, i).toLocaleString('pt-BR', { month: 'long' }).replace(/^\w/, c => c.toUpperCase())),
   '2022': Array.from({ length: 12 }, (_, i) => new Date(0, i).toLocaleString('pt-BR', { month: 'long' }).replace(/^\w/, c => c.toUpperCase())),
 };

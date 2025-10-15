@@ -1,6 +1,6 @@
 'use client';
 
-import { useFormState } from 'react-dom';
+import { useActionState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { SimulationForm } from './simulation-form';
 import RiskSummary from './risk-summary';
@@ -18,7 +18,7 @@ const initialState: SimulationState = {
 };
 
 export function SimulationClient() {
-  const [state, formAction] = useFormState(handleSimulation, initialState);
+  const [state, formAction] = useActionState(handleSimulation, initialState);
 
   return (
     <div className="grid gap-6 lg:grid-cols-3">

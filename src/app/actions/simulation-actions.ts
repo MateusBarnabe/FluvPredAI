@@ -3,13 +3,23 @@
 import { z } from 'zod';
 import { summarizeClimateRiskReport } from '@/ai/flows/summarize-climate-risk-report';
 import { generateMitigationRecommendations } from '@/ai/flows/generate-mitigation-recommendations';
+import { generateDailySummaryReport } from '@/ai/flows/generate-daily-summary-report';
+
 import type { SummarizeClimateRiskReportOutput } from '@/ai/flows/summarize-climate-risk-report';
 import type { GenerateMitigationRecommendationsOutput } from '@/ai/flows/generate-mitigation-recommendations';
+import type { GenerateDailySummaryReportOutput } from '@/ai/flows/generate-daily-summary-report';
+
 
 export interface SimulationState {
     summary: SummarizeClimateRiskReportOutput | null;
     recommendations: GenerateMitigationRecommendationsOutput | null;
     error: string | null;
+}
+
+export interface DailyReportState {
+    report: GenerateDailySummaryReportOutput | null;
+    error: string | null;
+    timestamp: number | null;
 }
 
 const formSchema = z.object({
@@ -40,6 +50,33 @@ const mockDataMap = {
         climateData: 'Padrões de chuva concentrada em curtos períodos aumentam a saturação do solo, elevando o risco de instabilidade.',
     }
 };
+
+export async function handleDailyReport(
+    prevState: DailyReportState
+): Promise<DailyReportState> {
+    try {
+        const dailyClimateData = "Previsão de altas temperaturas (33°C) com umidade relativa do ar baixa (25%) para hoje. Pancadas de chuva isoladas (5mm) são esperadas no final da tarde na zona norte, após um período de 15 dias sem chuvas significativas na maior parte da cidade. O solo em áreas de encosta está seco, mas pode ficar saturado rapidamente com chuvas concentradas.";
+
+        const reportResult = await generateDailySummaryReport({
+            city: 'Goiânia',
+            dailyClimateData,
+        });
+
+        return {
+            report: reportResult,
+            error: null,
+            timestamp: Date.now(),
+        };
+    } catch(e) {
+        const error = e instanceof Error ? e.message : 'Ocorreu um erro desconhecido.';
+        console.error(error);
+        return {
+            report: null,
+            error: `Falha na geração do relatório diário: ${error}`,
+            timestamp: Date.now(),
+        };
+    }
+}
 
 
 export async function handleSimulation(
@@ -85,4 +122,3 @@ export async function handleSimulation(
         };
     }
 }
- 

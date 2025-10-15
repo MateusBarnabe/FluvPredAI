@@ -1,10 +1,17 @@
 
+'use client';
 import Link from 'next/link';
+import { useActionState, useEffect, useState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { FilePlus, Cpu, Download, FileText, CalendarDays } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { FilePlus, Cpu, Download, FileText, CalendarDays, Loader2, AlertTriangle } from 'lucide-react';
+import { handleDailyReport } from '@/app/actions/simulation-actions';
+import type { DailyReportState } from '@/app/actions/simulation-actions';
 
 const savedReports = {
   '2025': Array.from({ length: 9 }, (_, i) => new Date(0, i).toLocaleString('pt-BR', { month: 'long' }).replace(/^\w/, c => c.toUpperCase())),
@@ -16,8 +23,42 @@ const savedReports = {
   '2019': Array.from({ length: 12 }, (_, i) => new Date(0, i).toLocaleString('pt-BR', { month: 'long' }).replace(/^\w/, c => c.toUpperCase())),
 };
 
+const initialDailyReportState: DailyReportState = {
+  report: null,
+  error: null,
+  timestamp: null,
+};
+
+function GenerateDailyReportButton() {
+  const { pending } = useFormStatus();
+
+  return (
+    <Button type="submit" disabled={pending}>
+      {pending ? (
+        <>
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          Gerando...
+        </>
+      ) : (
+        <>
+          <FilePlus className="mr-2 h-4 w-4" />
+          Gerar Relatório Diário
+        </>
+      )}
+    </Button>
+  );
+}
 
 export default function ReportsPage() {
+  const [state, formAction] = useActionState(handleDailyReport, initialDailyReportState);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  useEffect(() => {
+    if (state.timestamp) { // Only open if there is a new result
+      setIsDialogOpen(true);
+    }
+  }, [state.timestamp]);
+
   return (
     <div className="flex flex-col gap-6">
       <div>
@@ -43,28 +84,27 @@ export default function ReportsPage() {
             <CardContent className="grid gap-6 md:grid-cols-2">
               <div className="flex flex-col gap-4 p-6 bg-muted/50 rounded-lg justify-between">
                 <div>
-                    <h3 className="text-lg font-semibold mb-2">Relatório Diário Rápido</h3>
-                    <p className="text-sm text-muted-foreground">
-                        Gere um relatório instantâneo com os dados e alertas mais recentes do dia.
-                    </p>
+                  <h3 className="text-lg font-semibold mb-2">Relatório Diário Rápido</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Gere um relatório executivo instantâneo com os dados e alertas mais recentes do dia para toda a cidade.
+                  </p>
                 </div>
-                <Button>
-                    <FilePlus className="mr-2 h-4 w-4" />
-                    Gerar Relatório Diário
-                </Button>
+                <form action={formAction}>
+                  <GenerateDailyReportButton />
+                </form>
               </div>
-               <div className="flex flex-col gap-4 p-6 bg-muted/50 rounded-lg justify-between">
+              <div className="flex flex-col gap-4 p-6 bg-muted/50 rounded-lg justify-between">
                 <div>
-                    <h3 className="text-lg font-semibold mb-2">Relatório de Simulação</h3>
-                    <p className="text-sm text-muted-foreground">
-                        Vá para a área de simulação para criar um relatório detalhado com base em cenários específicos.
-                    </p>
+                  <h3 className="text-lg font-semibold mb-2">Relatório de Simulação</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Vá para a área de simulação para criar um relatório detalhado com base em cenários específicos.
+                  </p>
                 </div>
                 <Button asChild>
-                    <Link href="/dashboard/simulation">
-                        <Cpu className="mr-2 h-4 w-4" />
-                        Criar Relatório Personalizado
-                    </Link>
+                  <Link href="/dashboard/simulation">
+                    <Cpu className="mr-2 h-4 w-4" />
+                    Criar Relatório Personalizado
+                  </Link>
                 </Button>
               </div>
             </CardContent>
@@ -79,49 +119,70 @@ export default function ReportsPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-                {Object.keys(savedReports).length > 0 ? (
+              {Object.keys(savedReports).length > 0 ? (
                 <Accordion type="single" collapsible className="w-full">
-                    {Object.entries(savedReports).sort((a, b) => b[0].localeCompare(a[0])).map(([year, months]) => (
+                  {Object.entries(savedReports).sort((a, b) => b[0].localeCompare(a[0])).map(([year, months]) => (
                     <AccordionItem key={year} value={year}>
-                        <AccordionTrigger className="text-lg font-medium">
-                            <div className="flex items-center gap-2">
-                                <CalendarDays className="h-5 w-5" />
-                                Ano de {year}
-                            </div>
-                        </AccordionTrigger>
-                        <AccordionContent>
+                      <AccordionTrigger className="text-lg font-medium">
+                        <div className="flex items-center gap-2">
+                          <CalendarDays className="h-5 w-5" />
+                          Ano de {year}
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent>
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 pt-4">
-                            {months.map((month) => (
+                          {months.map((month) => (
                             <Card key={month} className="flex flex-col justify-between">
-                                <CardHeader className="p-4">
+                              <CardHeader className="p-4">
                                 <CardTitle className="flex items-center gap-2 text-base">
                                   <FileText className="h-4 w-4 text-muted-foreground" />
                                   {month}
                                 </CardTitle>
-                                </CardHeader>
-                                <CardContent className="p-4 pt-0">
+                              </CardHeader>
+                              <CardContent className="p-4 pt-0">
                                 <Button variant="outline" size="sm" className="w-full">
-                                    <Download className="mr-2 h-4 w-4" />
-                                    Baixar
+                                  <Download className="mr-2 h-4 w-4" />
+                                  Baixar
                                 </Button>
-                                </CardContent>
+                              </CardContent>
                             </Card>
-                            ))}
+                          ))}
                         </div>
-                        </AccordionContent>
+                      </AccordionContent>
                     </AccordionItem>
-                    ))}
+                  ))}
                 </Accordion>
-                ) : (
+              ) : (
                 <div className="text-center text-muted-foreground p-8 border-2 border-dashed rounded-lg">
-                    <p>Nenhum relatório foi gerado ainda.</p>
+                  <p>Nenhum relatório foi gerado ainda.</p>
                 </div>
-                )}
+              )}
             </CardContent>
           </Card>
         </TabsContent>
       </Tabs>
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+            <DialogHeader>
+                <DialogTitle>Relatório Diário de Risco</DialogTitle>
+                <DialogDescription>
+                    Resumo executivo dos potenciais riscos para hoje.
+                </DialogDescription>
+            </DialogHeader>
+            <div className="mt-4">
+                {state.report && (
+                    <p className="text-sm text-foreground/90 whitespace-pre-wrap">{state.report.report}</p>
+                )}
+                 {state.error && (
+                    <Alert variant="destructive">
+                        <AlertTriangle className="h-4 w-4" />
+                        <AlertTitle>Erro ao Gerar Relatório</AlertTitle>
+                        <AlertDescription>{state.error}</AlertDescription>
+                    </Alert>
+                )}
+            </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
- 

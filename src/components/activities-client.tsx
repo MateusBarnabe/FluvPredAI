@@ -37,7 +37,7 @@ const initialActivities: Activity[] = [
     cancellationReason: null,
   },
   { 
-    id: 3, 
+    id: 3, _
     description: 'Criação de 500m² de telhados verdes na região central', 
     responsible: 'Iniciativa Privada', 
     status: 'Prevista',
@@ -134,12 +134,14 @@ export function ActivitiesClient() {
     setSelectedActivity(null);
   };
 
-  const handleAddActivity = (newActivityData: Omit<Activity, 'id' | 'status' | 'history' | 'cancellationReason'>) => {
+  const handleAddActivity = (newActivityData: Omit<Activity, 'id' | 'status' | 'history' | 'cancellationReason'> & { predictedDate: Date }) => {
     const newActivity: Activity = {
-      ...newActivityData,
+      description: newActivityData.description,
+      responsible: newActivityData.responsible,
+      details: newActivityData.details,
       id: Math.max(0, ...activities.map(a => a.id)) + 1,
       status: 'Prevista',
-      history: [{ status: 'Prevista', date: new Date() }],
+      history: [{ status: 'Prevista', date: newActivityData.predictedDate }],
       cancellationReason: null
     };
     setActivities(currentActivities => [newActivity, ...currentActivities]);

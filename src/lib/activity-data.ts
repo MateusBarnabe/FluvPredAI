@@ -1,0 +1,96 @@
+import type { Activity } from '@/lib/types';
+
+export const initialActivities: Activity[] = [
+  { 
+    id: 1, 
+    description: 'Construção de bacia de retenção no Setor Oeste', 
+    responsible: 'Secretaria de Infraestrutura', 
+    status: 'Em Andamento',
+    priority: 'Alta',
+    details: 'Construção de uma bacia de contenção de águas pluviais para mitigar os riscos de inundação na área mais baixa do Setor Oeste, que historicamente sofre com alagamentos em períodos de chuva intensa.',
+    history: [
+      { status: 'Prevista', date: new Date('2023-10-15') },
+      { status: 'Em Andamento', date: new Date('2024-03-01') },
+    ],
+    cancellationReason: null,
+  },
+  { 
+    id: 2, 
+    description: 'Limpeza e desassoreamento do Córrego Central', 
+    responsible: 'Secretaria do Meio Ambiente', 
+    status: 'Prevista',
+    priority: 'Média',
+    details: 'Remoção de sedimentos e detritos do leito do Córrego Central para aumentar sua capacidade de vazão e prevenir transbordamentos.',
+    history: [
+      { status: 'Prevista', date: new Date('2024-01-20') },
+    ],
+    cancellationReason: null,
+  },
+  { 
+    id: 3,
+    description: 'Criação de 500m² de telhados verdes na região central', 
+    responsible: 'Iniciativa Privada', 
+    status: 'Concluida',
+    priority: 'Baixa',
+    details: 'Incentivo à instalação de telhados verdes em edifícios comerciais para ajudar na absorção da água da chuva e na redução do efeito de ilha de calor.',
+    history: [
+      { status: 'Prevista', date: new Date('2024-02-10') },
+      { status: 'Concluida', date: new Date('2024-06-01') },
+    ],
+    cancellationReason: null,
+  },
+  { 
+    id: 4, 
+    description: 'Sistema de alerta de enchentes via SMS', 
+    responsible: 'Defesa Civil', 
+    status: 'Concluida',
+    priority: 'Alta',
+    details: 'Implementação de um sistema automatizado para enviar alertas de risco de enchente para os moradores de áreas vulneráveis via mensagem de texto.',
+    history: [
+      { status: 'Prevista', date: new Date('2023-08-01') },
+      { status: 'Em Andamento', date: new Date('2023-09-05') },
+      { status: 'Concluida', date: new Date('2023-11-20') },
+    ],
+    cancellationReason: null,
+  },
+  { 
+    id: 5, 
+    description: 'Plantio de 1.000 árvores nativas nas margens dos rios', 
+    responsible: 'Secretaria do Meio Ambiente', 
+    status: 'Em Andamento',
+    priority: 'Média',
+    details: 'Projeto de reflorestamento das matas ciliares para estabilização das margens e melhoria da qualidade da água.',
+    history: [
+      { status: 'Prevista', date: new Date('2023-11-05') },
+      { status: 'Em Andamento', date: new Date('2024-04-15') },
+    ],
+    cancellationReason: null,
+  },
+  { 
+    id: 6, 
+    description: 'Estudo de viabilidade para parque linear', 
+    responsible: 'Secretaria de Planejamento', 
+    status: 'Cancelada',
+    priority: 'Baixa',
+    details: 'Análise da viabilidade técnica e financeira para a criação de um parque linear ao longo do principal rio da cidade.',
+    history: [
+      { status: 'Prevista', date: new Date('2023-06-01') },
+      { status: 'Cancelada', date: new Date('2024-01-30') },
+    ],
+    cancellationReason: 'Restrições orçamentárias impediram a continuação do projeto. Será reavaliado no próximo ciclo fiscal.',
+  },
+  { 
+    id: 7, 
+    description: 'Revisão do plano diretor para áreas de risco', 
+    responsible: 'Secretaria de Planejamento', 
+    status: 'Concluida',
+    priority: 'Alta',
+    details: 'Atualização do plano diretor municipal com novas diretrizes de zoneamento e construção para áreas identificadas com alto risco climático.',
+    history: [
+      { status: 'Prevista', date: new Date('2023-02-01') },
+      { status: 'Em Andamento', date: new Date('2023-05-10') },
+      { status: 'Concluida', date: new Date('2024-02-28') },
+    ],
+    cancellationReason: null,
+  },
+];

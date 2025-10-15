@@ -8,8 +8,8 @@
     },
     {
       "id": "map-placeholder",
-      "description": "Uma imagem de placeholder de um mapa da cidade com zonas coloridas.",
-      "imageUrl": "https://picsum.photos/seed/citymap/800/600",
+      "description": "Uma imagem ilustrativa de um mapa de calor da cidade de Goiânia.",
+      "imageUrl": "https://picsum.photos/seed/goiania-map/800/600",
       "imageHint": "mapa da cidade"
     }
   ]

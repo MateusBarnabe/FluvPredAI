@@ -13,7 +13,7 @@ export default function MapView() {
             <Map className="h-5 w-5" />
             Mapa da Região
         </CardTitle>
-        <CardDescription>Mapa interativo mostrando zonas de risco.</CardDescription>
+        <CardDescription>Mapa de calor ilustrativo de Goiânia.</CardDescription>
       </CardHeader>
       <CardContent className="p-0">
         {mapImage ? (
@@ -35,4 +35,3 @@ export default function MapView() {
     </Card>
   );
 }
- 

@@ -14,7 +14,7 @@ export interface SimulationState {
 
 const formSchema = z.object({
   region: z.string().min(1, 'Região é obrigatória.'),
-  riskType: z.enum(['flood', 'drought', 'heat island']),
+  riskType: z.enum(['flood', 'drought', 'heat island', 'landslide']),
 });
 
 export async function handleSimulation(

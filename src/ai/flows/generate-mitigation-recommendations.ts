@@ -16,7 +16,7 @@ import {z} from 'genkit';
 const GenerateMitigationRecommendationsInputSchema = z.object({
   cityData: z.string().describe('Urban data including maps, drainage network, terrain, and land use.'),
   climateData: z.string().describe('Climate data including historical, current, and forecast data.'),
-  riskType: z.enum(['flood', 'drought', 'heat island']).describe('The type of climate risk to mitigate.'),
+  riskType: z.enum(['flood', 'drought', 'heat island', 'landslide']).describe('The type of climate risk to mitigate.'),
   region: z.string().describe('The specific region within the city to focus on.'),
 });
 export type GenerateMitigationRecommendationsInput = z.infer<typeof GenerateMitigationRecommendationsInputSchema>;

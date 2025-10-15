@@ -73,6 +73,7 @@ export function SimulationForm({ formAction }: SimulationFormProps) {
                 <SelectItem value="flood">Enchente</SelectItem>
                 <SelectItem value="drought">Seca</SelectItem>
                 <SelectItem value="heat island">Ilha de Calor</SelectItem>
+                <SelectItem value="landslide">Deslizamento</SelectItem>
               </SelectContent>
             </Select>
           </div>

@@ -8,7 +8,8 @@ const navTranslations: { [key: string]: string } = {
     dashboard: 'Painel',
     simulation: 'Simulação',
     reports: 'Relatórios',
-    alerts: 'Alertas'
+    alerts: 'Alertas',
+    activities: 'Atividades'
 };
 
 export function Header() {

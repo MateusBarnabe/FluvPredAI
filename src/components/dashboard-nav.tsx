@@ -7,6 +7,7 @@ import {
   Cpu,
   FileText,
   Bell,
+  ListChecks,
 } from 'lucide-react';
 import { SidebarMenu, SidebarMenuItem, SidebarMenuButton } from '@/components/ui/sidebar';
 
@@ -15,6 +16,7 @@ const navItems = [
   { href: '/dashboard/simulation', label: 'Simulação', icon: Cpu },
   { href: '/dashboard/reports', label: 'Relatórios', icon: FileText },
   { href: '/dashboard/alerts', label: 'Alertas', icon: Bell },
+  { href: '/dashboard/activities', label: 'Atividades', icon: ListChecks },
 ];
 
 export default function DashboardNav() {

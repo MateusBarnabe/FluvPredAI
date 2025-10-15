@@ -83,3 +83,4 @@ export function SimulationForm({ formAction }: SimulationFormProps) {
     </Card>
   );
 }
+ 

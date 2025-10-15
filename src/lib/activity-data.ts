@@ -69,7 +69,7 @@ export const initialActivities: Activity[] = [
   { 
     id: 6, 
     description: 'Estudo de viabilidade para parque linear', 
-    responsible: 'Secretaria de Planejamento', 
+    responsible: 'Secretaria de Planejamento', _
     status: 'Cancelada',
     priority: 'Longo Prazo',
     details: 'Análise da viabilidade técnica e financeira para a criação de um parque linear ao longo do principal rio da cidade.',
@@ -94,3 +94,4 @@ export const initialActivities: Activity[] = [
     cancellationReason: null,
   },
 ];
+ 

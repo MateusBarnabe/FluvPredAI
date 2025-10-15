@@ -42,3 +42,4 @@ export default function MitigationRecommendations({ recommendations }: Mitigatio
     </Card>
   );
 }
+ 

@@ -14,3 +14,4 @@ export interface Activity {
   }[];
   cancellationReason: string | null;
 }
+ 

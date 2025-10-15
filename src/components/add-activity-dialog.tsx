@@ -150,3 +150,4 @@ export function AddActivityDialog({ isOpen, onClose, onSave }: AddActivityDialog
     </Dialog>
   );
 }
+ 

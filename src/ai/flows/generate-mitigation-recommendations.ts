@@ -64,3 +64,4 @@ const generateMitigationRecommendationsFlow = ai.defineFlow(
     return output!;
   }
 );
+ 

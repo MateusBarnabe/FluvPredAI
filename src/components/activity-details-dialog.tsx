@@ -99,3 +99,4 @@ export function ActivityDetailsDialog({ activity, isOpen, onClose, statusVariant
     </Dialog>
   );
 }
+ 

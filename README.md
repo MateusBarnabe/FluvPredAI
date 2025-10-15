@@ -79,3 +79,4 @@ Agora você pode acessar `http://localhost:9002` em seu navegador e utilizar a a
 *   `npm run build`: Compila a aplicação para produção.
 *   `npm run start`: Inicia o servidor de produção após a compilação.
 *   `npm run lint`: Executa o linter para verificar a qualidade do código.
+ 

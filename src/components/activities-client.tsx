@@ -1,12 +1,15 @@
 'use client';
 
 import { useState } from 'react';
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 import { ActivityDetailsDialog } from './activity-details-dialog';
+import { AddActivityDialog } from './add-activity-dialog';
 import type { Activity, Status } from '@/lib/types';
+import { Plus } from 'lucide-react';
 
 
 const initialActivities: Activity[] = [
@@ -107,6 +110,7 @@ const statusVariants: Record<Status, string> = {
 export function ActivitiesClient() {
   const [activities, setActivities] = useState<Activity[]>(initialActivities);
   const [selectedActivity, setSelectedActivity] = useState<Activity | null>(null);
+  const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
 
   const handleStatusChange = (activityId: number, newStatus: Status) => {
     setActivities(currentActivities =>
@@ -130,11 +134,27 @@ export function ActivitiesClient() {
     setSelectedActivity(null);
   };
 
+  const handleAddActivity = (newActivityData: Omit<Activity, 'id' | 'status' | 'history' | 'cancellationReason'>) => {
+    const newActivity: Activity = {
+      ...newActivityData,
+      id: Math.max(0, ...activities.map(a => a.id)) + 1,
+      status: 'Prevista',
+      history: [{ status: 'Prevista', date: new Date() }],
+      cancellationReason: null
+    };
+    setActivities(currentActivities => [newActivity, ...currentActivities]);
+    setIsAddDialogOpen(false);
+  };
+
   return (
     <>
       <Card>
-        <CardHeader>
+        <CardHeader className="flex flex-row items-center justify-between">
           <CardTitle>Lista de Atividades</CardTitle>
+          <Button onClick={() => setIsAddDialogOpen(true)}>
+            <Plus className="mr-2 h-4 w-4" />
+            Nova Atividade
+          </Button>
         </CardHeader>
         <CardContent>
           <Table>
@@ -184,6 +204,11 @@ export function ActivitiesClient() {
             statusVariants={statusVariants}
         />
       )}
+      <AddActivityDialog
+        isOpen={isAddDialogOpen}
+        onClose={() => setIsAddDialogOpen(false)}
+        onSave={handleAddActivity}
+      />
     </>
   );
 }

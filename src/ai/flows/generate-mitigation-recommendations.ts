@@ -40,31 +40,17 @@ const prompt = ai.definePrompt({
   name: 'generateMitigationRecommendationsPrompt',
   input: {schema: GenerateMitigationRecommendationsInputSchema},
   output: {schema: GenerateMitigationRecommendationsOutputSchema},
-  prompt: `Você é um planejador urbano especialista em adaptação às mudanças climáticas.
+  prompt: `You are an expert urban planner specializing in climate change adaptation.
+Based on the provided city data, climate data, risk type, and region, generate specific and actionable recommendations to mitigate the climate risk.
+Respond in Brazilian Portuguese.
 
-  Com base nos dados da cidade, dados climáticos e no tipo de risco e região especificados, gere recomendações específicas e acionáveis para mitigar o risco climático.
+City Data: {{{cityData}}}
+Climate Data: {{{climateData}}}
+Risk Type: {{{riskType}}}
+Region: {{{region}}}
 
-  Responda em Português (Brasil).
-
-  Dados da Cidade: {{{cityData}}}
-  Dados Climáticos: {{{climateData}}}
-  Tipo de Risco: {{{riskType}}}
-  Região: {{{region}}}
-
-  Formate suas recomendações como uma lista de ações, locais e impactos esperados.
-  Exemplo:
-  \`\`\`
-  {
-    "recommendations": [
-      {
-        "action": "Construir uma bacia de retenção",
-        "location": "Setor Oeste",
-        "impact": "Reduz o risco de inundação em 38%"
-      }
-    ]
-  }
-  \`\`\`
-  `,
+Format your recommendations as a list of actions, locations, and expected impacts.
+`,
 });
 
 const generateMitigationRecommendationsFlow = ai.defineFlow(

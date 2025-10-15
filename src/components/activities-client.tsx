@@ -37,7 +37,7 @@ const initialActivities: Activity[] = [
     cancellationReason: null,
   },
   { 
-    id: 3, _
+    id: 3,
     description: 'Criação de 500m² de telhados verdes na região central', 
     responsible: 'Iniciativa Privada', 
     status: 'Prevista',

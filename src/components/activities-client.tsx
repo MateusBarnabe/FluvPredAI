@@ -22,9 +22,11 @@ const statusVariants: Record<Status, string> = {
 };
 
 const priorityVariants: Record<Priority, string> = {
-    Baixa: "bg-gray-100 text-gray-700 border-gray-200",
-    Média: "bg-yellow-100 text-yellow-800 border-yellow-200",
-    Alta: "bg-orange-100 text-orange-800 border-orange-200",
+    Emergente: "bg-red-200 text-red-900 border-red-300",
+    Urgente: "bg-orange-200 text-orange-900 border-orange-300",
+    Moderada: "bg-yellow-200 text-yellow-900 border-yellow-300",
+    Normal: "bg-blue-200 text-blue-900 border-blue-300",
+    "Longo Prazo": "bg-gray-200 text-gray-800 border-gray-300",
 };
 
 
@@ -100,14 +102,16 @@ export function ActivitiesClient() {
                 </SelectContent>
               </Select>
               <Select value={priorityFilter} onValueChange={(value: Priority | 'Todos') => setPriorityFilter(value)}>
-                <SelectTrigger className="w-full sm:w-[160px]">
+                <SelectTrigger className="w-full sm:w-[180px]">
                   <SelectValue placeholder="Filtrar por prioridade..." />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="Todos">Todas Prioridades</SelectItem>
-                  <SelectItem value="Baixa">Baixa</SelectItem>
-                  <SelectItem value="Média">Média</SelectItem>
-                  <SelectItem value="Alta">Alta</SelectItem>
+                  <SelectItem value="Emergente">Emergente</SelectItem>
+                  <SelectItem value="Urgente">Urgente</SelectItem>
+                  <SelectItem value="Moderada">Moderada</SelectItem>
+                  <SelectItem value="Normal">Normal</SelectItem>
+                  <SelectItem value="Longo Prazo">Longo Prazo</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -123,7 +127,7 @@ export function ActivitiesClient() {
               <TableRow>
                 <TableHead>Atividade</TableHead>
                 <TableHead className="hidden md:table-cell">Responsável</TableHead>
-                <TableHead className="w-[120px]">Prioridade</TableHead>
+                <TableHead className="w-[140px]">Prioridade</TableHead>
                 <TableHead className="w-[180px]">Status</TableHead>
               </TableRow>
             </TableHeader>

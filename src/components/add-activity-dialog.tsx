@@ -119,9 +119,11 @@ export function AddActivityDialog({ isOpen, onClose, onSave }: AddActivityDialog
                   <SelectValue placeholder="Selecione..." />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="Baixa">Baixa</SelectItem>
-                  <SelectItem value="Média">Média</SelectItem>
-                  <SelectItem value="Alta">Alta</SelectItem>
+                  <SelectItem value="Emergente">Emergente</SelectItem>
+                  <SelectItem value="Urgente">Urgente</SelectItem>
+                  <SelectItem value="Moderada">Moderada</SelectItem>
+                  <SelectItem value="Normal">Normal</SelectItem>
+                  <SelectItem value="Longo Prazo">Longo Prazo</SelectItem>
                 </SelectContent>
               </Select>
             </div>

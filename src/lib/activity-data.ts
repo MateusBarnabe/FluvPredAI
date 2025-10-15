@@ -6,7 +6,7 @@ export const initialActivities: Activity[] = [
     description: 'Construção de bacia de retenção no Setor Oeste', 
     responsible: 'Secretaria de Infraestrutura', 
     status: 'Em Andamento',
-    priority: 'Alta',
+    priority: 'Urgente',
     details: 'Construção de uma bacia de contenção de águas pluviais para mitigar os riscos de inundação na área mais baixa do Setor Oeste, que historicamente sofre com alagamentos em períodos de chuva intensa.',
     history: [
       { status: 'Prevista', date: new Date('2023-10-15') },
@@ -19,7 +19,7 @@ export const initialActivities: Activity[] = [
     description: 'Limpeza e desassoreamento do Córrego Central', 
     responsible: 'Secretaria do Meio Ambiente', 
     status: 'Prevista',
-    priority: 'Média',
+    priority: 'Moderada',
     details: 'Remoção de sedimentos e detritos do leito do Córrego Central para aumentar sua capacidade de vazão e prevenir transbordamentos.',
     history: [
       { status: 'Prevista', date: new Date('2024-01-20') },
@@ -31,7 +31,7 @@ export const initialActivities: Activity[] = [
     description: 'Criação de 500m² de telhados verdes na região central', 
     responsible: 'Iniciativa Privada', 
     status: 'Concluida',
-    priority: 'Baixa',
+    priority: 'Normal',
     details: 'Incentivo à instalação de telhados verdes em edifícios comerciais para ajudar na absorção da água da chuva e na redução do efeito de ilha de calor.',
     history: [
       { status: 'Prevista', date: new Date('2024-02-10') },
@@ -44,7 +44,7 @@ export const initialActivities: Activity[] = [
     description: 'Sistema de alerta de enchentes via SMS', 
     responsible: 'Defesa Civil', 
     status: 'Concluida',
-    priority: 'Alta',
+    priority: 'Emergente',
     details: 'Implementação de um sistema automatizado para enviar alertas de risco de enchente para os moradores de áreas vulneráveis via mensagem de texto.',
     history: [
       { status: 'Prevista', date: new Date('2023-08-01') },
@@ -58,7 +58,7 @@ export const initialActivities: Activity[] = [
     description: 'Plantio de 1.000 árvores nativas nas margens dos rios', 
     responsible: 'Secretaria do Meio Ambiente', 
     status: 'Em Andamento',
-    priority: 'Média',
+    priority: 'Moderada',
     details: 'Projeto de reflorestamento das matas ciliares para estabilização das margens e melhoria da qualidade da água.',
     history: [
       { status: 'Prevista', date: new Date('2023-11-05') },
@@ -71,7 +71,7 @@ export const initialActivities: Activity[] = [
     description: 'Estudo de viabilidade para parque linear', 
     responsible: 'Secretaria de Planejamento', 
     status: 'Cancelada',
-    priority: 'Baixa',
+    priority: 'Longo Prazo',
     details: 'Análise da viabilidade técnica e financeira para a criação de um parque linear ao longo do principal rio da cidade.',
     history: [
       { status: 'Prevista', date: new Date('2023-06-01') },
@@ -84,7 +84,7 @@ export const initialActivities: Activity[] = [
     description: 'Revisão do plano diretor para áreas de risco', 
     responsible: 'Secretaria de Planejamento', 
     status: 'Concluida',
-    priority: 'Alta',
+    priority: 'Urgente',
     details: 'Atualização do plano diretor municipal com novas diretrizes de zoneamento e construção para áreas identificadas com alto risco climático.',
     history: [
       { status: 'Prevista', date: new Date('2023-02-01') },

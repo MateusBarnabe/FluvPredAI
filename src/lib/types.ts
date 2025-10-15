@@ -1,5 +1,5 @@
 export type Status = 'Prevista' | 'Em Andamento' | 'Concluida' | 'Cancelada';
-export type Priority = 'Baixa' | 'Média' | 'Alta';
+export type Priority = 'Emergente' | 'Urgente' | 'Moderada' | 'Normal' | 'Longo Prazo';
 
 export interface Activity {
   id: number;

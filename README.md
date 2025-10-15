@@ -72,7 +72,7 @@ Este comando inicia o servidor Genkit e o mantém observando por alterações no
 
 ### 5. Tudo Pronto!
 
-Agora você pode acessar `http://localhost:9002` em seu navegador e utilizar a aplicação completa.
+Agora você pode acessar `http://localhost:9002` em seu navegador e utilizar a sua aplicação completa.
 
 ## Outros Scripts Disponíveis
 

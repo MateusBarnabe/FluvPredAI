@@ -1,6 +1,6 @@
 'use client';
 
-import { useActionState, useState, useId } from 'react';
+import { useActionState, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { SimulationForm } from './simulation-form';
 import RiskSummary from './risk-summary';
@@ -19,11 +19,11 @@ const initialState: SimulationState = {
 
 export function SimulationClient() {
   const [state, formAction] = useActionState(handleSimulation, initialState);
-  const [formKey, setFormKey] = useState(useId());
+  const [formKey, setFormKey] = useState(Date.now().toString());
 
   const wrappedFormAction = async (formData: FormData) => {
     await formAction(formData);
-    setFormKey(useId());
+    setFormKey(Date.now().toString());
   }
 
   return (

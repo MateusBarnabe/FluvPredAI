@@ -13,8 +13,8 @@ import DashboardNav from '@/components/dashboard-nav';
 import { UserNav } from '@/components/user-nav';
 
 export const metadata: Metadata = {
-  title: 'Painel | CityTwinAI',
-  description: 'Painel do CityTwinAI.',
+  title: 'Painel | FluvPred',
+  description: 'Painel do FluvPred.',
 };
 
 export default function DashboardLayout({
@@ -28,7 +28,7 @@ export default function DashboardLayout({
         <SidebarHeader>
           <div className="flex items-center gap-2 p-2">
             <Waves className="h-8 w-8 text-primary" />
-            <h1 className="text-xl font-semibold font-headline">CityTwinAI</h1>
+            <h1 className="text-xl font-semibold font-headline">FluvPred</h1>
           </div>
         </SidebarHeader>
         <SidebarContent>

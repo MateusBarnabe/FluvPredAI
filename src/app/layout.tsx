@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'CityTwinAI',
+  title: 'FluvPred',
   description: 'Um sistema de apoio à decisão para gestão urbana e mudanças climáticas, atuando como um gêmeo digital da cidade.',
 };
 

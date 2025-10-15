@@ -17,7 +17,7 @@ export default function LoginPage() {
           <div className="grid gap-2 text-center">
             <div className="flex items-center justify-center gap-2">
               <Waves className="h-8 w-8 text-primary" />
-              <h1 className="text-3xl font-bold font-headline">CityTwinAI</h1>
+              <h1 className="text-3xl font-bold font-headline">FluvPred</h1>
             </div>
             <p className="text-balance text-muted-foreground">
               Insira suas credenciais para acessar seu gêmeo digital urbano
